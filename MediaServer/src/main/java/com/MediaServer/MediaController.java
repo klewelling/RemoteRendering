@@ -3,25 +3,41 @@ package com.MediaServer;
 /**
  * Created by alexbiju on 11/8/14.
  */
-import static spark.Spark.*;
+import com.google.gson.Gson;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Hashtable;
+
 import static com.MediaServer.JsonUtil.*;
-public class MediaController {
-    public MediaController(MediaService mediaService){
+public class MediaController  extends Thread{
+    private Socket socket;
+    private BufferedReader in;
+    private PrintWriter out;
 
-        //searches the media library
-        get("/search/:term",(req,res)->{
-            String searchTerm = req.params(":term");
-            return searchTerm;
-        },json());
+    public MediaController(Socket socket){
+        this.socket = socket;
+    }
 
-        //returns top results? don't think i am doing this
-        get("/top/",(req,res)->{
-            return "hello";
-        },json());
+    public void run(){
+        try {
+            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            out = new PrintWriter(socket.getOutputStream(), true);
 
-        //send a file name/id and then respond with the url that is the file
-        get("/get/:fileName",(req,res)->{
-            return req.params(":fileName");
-        },json());
+            while(true){
+                if(in.ready()){
+                    String input = in.readLine();
+                }
+
+            }
+        }catch (IOException e) {
+            System.out.println(e);
+        }finally {
+
+        }
     }
 }
