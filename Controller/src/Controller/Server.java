@@ -2,6 +2,7 @@ package Controller;
 
 import java.io.*;
 import java.net.*;
+import java.util.*;
 
 import org.json.*;
 
@@ -54,15 +55,22 @@ public class Server {
 
 	
 	// Sends a search command to the Server, with a string containing the search params
-	public String[] search(String searchParams) throws Exception{
+	public List<String> search(String searchParams) throws Exception{
 		JSONObject outbound = new JSONObject();
+		JSONObject fromString;
 		String inbound;
 		
+		if (!this.server.isConnected()){
+			throw new Exception ("Connection to Server lost");
+		}
+		
+		outbound.append("Type","controller");
 		outbound.append("Artist", searchParams);
 		socketWriteChannel.println(outbound.toString());
 		inbound = socketReadChannel.readLine();
+		fromString = new JSONObject(new JSONTokener(inbound));
 		// Parse list from inbound info
-		return new String[0]; // This will change
+		return (List<String>) fromString.get("results"); // This will change
 	}
 	
 }

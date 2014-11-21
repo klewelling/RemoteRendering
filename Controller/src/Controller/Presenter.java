@@ -29,6 +29,29 @@ public class Presenter {
 		Connect();
 	}
 	
+	private void ErrorCheck() throws Exception{
+		String inboundError;
+		JSONObject fromString;
+		
+		// Test connection
+		if (!this.presenter.isConnected()){
+			throw new Exception ("Connection to Presenter lost");
+		}
+		
+		// Check if presenter has sent any error messages
+		try {
+			presenter.setSoTimeout(500);
+			inboundError = socketReadChannel.readLine();
+			presenter.setSoTimeout(0);
+			fromString = new JSONObject(new JSONTokener(inboundError));
+			socketWriteChannel.println((new JSONObject().append("result", "success")).toString());
+			throw new Exception(fromString.getString("error"));
+			
+		} catch (IOException ex) {
+			presenter.setSoTimeout(0);
+		}
+	}
+	
 	public void Disconnect() throws IOException{
 		this.presenter.close();
 	}
@@ -52,65 +75,59 @@ public class Presenter {
 		socketWriteChannel = new PrintWriter(this.presenter.getOutputStream(), true);
 	}
 	
-	// Sends a Play command to the Presenter to play the file specified
-	public void play(String filename) throws Exception{
+	private void SendCommand(String command, String parameter) throws Exception{
 		JSONObject outbound = new JSONObject();
+		JSONObject fromString;
 		String inbound;
 		
-		outbound.append("action","play");
-		outbound.append("id", filename);
+		ErrorCheck();
+		
+		switch (command){
+		case "play":
+			outbound.append("action",command);
+			outbound.append("id", parameter);
+			break;
+		default:
+			outbound.append("action",command);
+			break;
+		}
 
 		socketWriteChannel.println(outbound.toString());
 		
 		inbound = socketReadChannel.readLine();
+		fromString = new JSONObject(new JSONTokener(inbound));
+		if (fromString.getString("result") == "failure") {
+			throw new Exception(fromString.getString("reason"));
+		} else if (fromString.getString("result") == "success") {
+			;
+		} else {
+			throw new Exception("Invalid response from Presenter");
+		}
+	}
+	
+	// Sends a Play command to the Presenter to play the file specified
+	public void play(String filename) throws Exception{
+		SendCommand("play", filename);
 	}
 	
 	// Sends a Pause command to the Presenter
 	public void pause() throws Exception{
-		JSONObject outbound = new JSONObject();
-		String inbound;
-		
-		outbound.append("action","pause");
-
-		socketWriteChannel.println(outbound.toString());
-		
-		inbound = socketReadChannel.readLine();
+		SendCommand("pause", "");
 	}
 	
 	// Sends a rewind command to the Presenter
 	public void rewind() throws Exception{
-		JSONObject outbound = new JSONObject();
-		String inbound;
-		
-		outbound.append("action","rewind");
-
-		socketWriteChannel.println(outbound.toString());
-		
-		inbound = socketReadChannel.readLine();
+		SendCommand("rewind", "");
 	}
 	
 	// Sends a fast forward command to the Presenter
 	public void forward() throws Exception{
-		JSONObject outbound = new JSONObject();
-		String inbound;
-		
-		outbound.append("action","forward");
-
-		socketWriteChannel.println(outbound.toString());
-		
-		inbound = socketReadChannel.readLine();
+		SendCommand("forward", "");
 	}
 	
 	// Sends a stop command to the Presenter
 	public void stop() throws Exception{
-		JSONObject outbound = new JSONObject();
-		String inbound;
-		
-		outbound.append("action","stop");
-
-		socketWriteChannel.println(outbound.toString());
-		
-		inbound = socketReadChannel.readLine();
+		SendCommand("stop", "");
 	}
 
 }
