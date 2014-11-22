@@ -106,27 +106,27 @@ public class Presenter {
 	}
 	
 	// Sends a Play command to the Presenter to play the file specified
-	public void play(String filename) throws Exception{
+	public void Play(String filename) throws Exception{
 		SendCommand("play", filename);
 	}
 	
 	// Sends a Pause command to the Presenter
-	public void pause() throws Exception{
+	public void Pause() throws Exception{
 		SendCommand("pause", "");
 	}
 	
 	// Sends a rewind command to the Presenter
-	public void rewind() throws Exception{
+	public void Rewind() throws Exception{
 		SendCommand("rewind", "");
 	}
 	
 	// Sends a fast forward command to the Presenter
-	public void forward() throws Exception{
+	public void Forward() throws Exception{
 		SendCommand("forward", "");
 	}
 	
 	// Sends a stop command to the Presenter
-	public void stop() throws Exception{
+	public void Stop() throws Exception{
 		SendCommand("stop", "");
 	}
 

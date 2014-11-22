@@ -55,7 +55,7 @@ public class Server {
 
 	
 	// Sends a search command to the Server, with a string containing the search params
-	public List<String> search(String searchParams) throws Exception{
+	public List<String> Search(String searchParams) throws Exception{
 		JSONObject outbound = new JSONObject();
 		JSONObject fromString;
 		String inbound;
@@ -64,13 +64,33 @@ public class Server {
 			throw new Exception ("Connection to Server lost");
 		}
 		
-		outbound.append("Type","controller");
-		outbound.append("Artist", searchParams);
+		outbound.append("type","controller");
+		outbound.append("request","search");
+		outbound.append("search", searchParams);
 		socketWriteChannel.println(outbound.toString());
 		inbound = socketReadChannel.readLine();
 		fromString = new JSONObject(new JSONTokener(inbound));
 		// Parse list from inbound info
-		return (List<String>) fromString.get("results"); // This will change
+		return (List<String>) fromString.get("results");
 	}
+	
+	// Sends a search command to the Server, with a string containing the search params
+		public List<String> TopTen() throws Exception{
+			JSONObject outbound = new JSONObject();
+			JSONObject fromString;
+			String inbound;
+			
+			if (!this.server.isConnected()){
+				throw new Exception ("Connection to Server lost");
+			}
+			
+			outbound.append("type","controller");
+			outbound.append("request","top");
+			socketWriteChannel.println(outbound.toString());
+			inbound = socketReadChannel.readLine();
+			fromString = new JSONObject(new JSONTokener(inbound));
+			// Parse list from inbound info
+			return (List<String>) fromString.get("results");
+		}
 	
 }
