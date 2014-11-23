@@ -7,7 +7,7 @@ import org.json.*;
 
 public class Presenter {
 	
-	static final int PRESENTER_PORT = 10023;
+	static final int PRESENTER_PORT = 8080;
 	SocketAddress presenterAddress;
 	int port;
 	PrintWriter socketWriteChannel;
@@ -15,7 +15,7 @@ public class Presenter {
 	Socket presenter;
 	
 	public Presenter() throws Exception{
-		this("1.1.1.1", PRESENTER_PORT);
+		this("127.0.0.1", PRESENTER_PORT);
 	}
 	
 	public Presenter(String ipAddress, int port) throws Exception{
@@ -24,7 +24,7 @@ public class Presenter {
 			this.presenterAddress = new InetSocketAddress(InetAddress.getByName(ipAddress), port);
 		} catch (UnknownHostException PresEx) {
 			throw new Exception("Unknown Server Host", PresEx);
-		}
+		} 
 		
 		Connect();
 	}
@@ -33,21 +33,19 @@ public class Presenter {
 		String inboundError;
 		JSONObject fromString;
 		
-		// Test connection
-		if (!this.presenter.isConnected()){
-			throw new Exception ("Connection to Presenter lost");
-		}
-		
 		// Check if presenter has sent any error messages
 		try {
 			presenter.setSoTimeout(500);
 			inboundError = socketReadChannel.readLine();
 			presenter.setSoTimeout(0);
 			fromString = new JSONObject(new JSONTokener(inboundError));
-			socketWriteChannel.println((new JSONObject().append("result", "success")).toString());
+			socketWriteChannel.println((new JSONObject().put("result", "success")).toString());
 			throw new Exception(fromString.getString("error"));
 			
-		} catch (IOException ex) {
+		} catch (SocketException ex){
+			throw new Exception ("Connection to Presenter lost");
+		}
+		catch (IOException ex) {
 			presenter.setSoTimeout(0);
 		}
 	}
@@ -63,6 +61,8 @@ public class Presenter {
 			this.presenter.connect(presenterAddress, 60000);
 		} catch (SocketTimeoutException ex) {
 			throw new Exception("Timed out while connecting to presenter", ex);
+		} catch (ConnectException ex){
+			throw new Exception("Connection refused while connecting to presenter", ex);
 		}
 		// If presenter connection fails; alert user
 		if (!this.presenter.isConnected()){
@@ -84,11 +84,11 @@ public class Presenter {
 		
 		switch (command){
 		case "play":
-			outbound.append("action",command);
-			outbound.append("id", parameter);
+			outbound.put("action",command);
+			outbound.put("id", parameter);
 			break;
 		default:
-			outbound.append("action",command);
+			outbound.put("action",command);
 			break;
 		}
 
@@ -96,9 +96,9 @@ public class Presenter {
 		
 		inbound = socketReadChannel.readLine();
 		fromString = new JSONObject(new JSONTokener(inbound));
-		if (fromString.getString("result") == "failure") {
+		if (fromString.getString("result").equals("failure")) {
 			throw new Exception(fromString.getString("reason"));
-		} else if (fromString.getString("result") == "success") {
+		} else if (fromString.getString("result").equals("success")) {
 			;
 		} else {
 			throw new Exception("Invalid response from Presenter");
