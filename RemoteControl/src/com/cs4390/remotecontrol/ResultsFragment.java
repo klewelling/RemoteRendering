@@ -14,9 +14,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-public class ResultsFragment extends ListFragment implements CurrentSongRenderer, PlayControls {
+public class ResultsFragment extends ListFragment implements CurrentSongRenderer {
 
 	private SongSelectedListener selectedListener;
+	private PlayControls playControls;
 	private JSONArray results;
 	private CurrentSongView currentSongView;
 	private JSONObject tempSong;
@@ -40,6 +41,7 @@ public class ResultsFragment extends ListFragment implements CurrentSongRenderer
 		super.onAttach(activity);
 		
 		selectedListener = (SongSelectedListener)activity;
+		playControls = (PlayControls)activity;
 	}
 	
 	@Override
@@ -47,7 +49,7 @@ public class ResultsFragment extends ListFragment implements CurrentSongRenderer
 			Bundle savedInstanceState) {
 		
 		View view = inflater.inflate(R.layout.listview, container, false);
-		currentSongView = new CurrentSongView(view, this);
+		currentSongView = new CurrentSongView(view, playControls);
 		
 		if(tempSong != null){
 			currentSongView.setSong(tempSong);
@@ -96,13 +98,6 @@ public class ResultsFragment extends ListFragment implements CurrentSongRenderer
 		}
 		
 	}
-	
-	@Override
-	public void onPlayClicked(boolean playing) {
-		setState(playing);
 		
-		//TODO: move PLayControls to MainActivity
-		//This will use the presenter thread to send the play message
-	}
 	
 }

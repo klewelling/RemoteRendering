@@ -4,10 +4,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.Loader;
@@ -18,7 +19,7 @@ import android.view.MenuItem;
 
 public class MainActivity extends ActionBarActivity implements
 		SearchView.OnQueryTextListener, SearchView.OnSuggestionListener,
-		LoaderCallbacks<JSONObject>, SongSelectedListener {
+		LoaderCallbacks<JSONObject>, SongSelectedListener, PlayControls {
 
 	private JSONObject selectedSong;
 	private CurrentSongRenderer currentSongRenderer;
@@ -27,6 +28,7 @@ public class MainActivity extends ActionBarActivity implements
 	private SearchView searchView;
 	
 	private MenuItem searchItem;
+	private MenuItem preferenceItem;
 
 	private boolean expandSearch = false;
 	private String searchQuery;
@@ -35,8 +37,6 @@ public class MainActivity extends ActionBarActivity implements
 	private CommunicatonThread rendererServer;
 
 	private static final String CURRENTLY_SEARCHING = "CURRENTLY_SEARCHING";
-	private static final String MEDIA_SERVER_ADDRESS = "MEDIA_SERVER_ADDRESS";
-	private static final String RENDERER_SERVER_ADDRESS = "RENDERER_SERVER_ADDRESS";
 	
 	//TODO: replace with real message components
 	public static final String MEDIA_QUERY = "MEDIA_QUERY";
@@ -44,6 +44,7 @@ public class MainActivity extends ActionBarActivity implements
 	public static final String ARIST = "ARIST";
 	public static final String SONG = "SONG";
 	public static final String ALBUM = "ALBUM";
+	public static final String FILENAME = "FILENAME";
 	public static final String RESULTS = "RESULTS";
 	
 	private static final int URL_SEARCH_LOADER = 0;
@@ -53,10 +54,13 @@ public class MainActivity extends ActionBarActivity implements
 		super.onCreate(savedInstanceState);
 		
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-		/*if( !prefs.contains(MEDIA_SERVER_ADDRESS) || prefs.contains(RENDERER_SERVER_ADDRESS)){
+		if( "".equals(prefs.getString(ApplicationPreferences.MEDIA_IP_ADDRESS, ""))  || 
+				"".equals(prefs.getString(ApplicationPreferences.MEDIA_PORT, ""))  ||
+				"".equals(prefs.getString(ApplicationPreferences.RENDERER_IP_ADDRESS, ""))  ||
+				"".equals(prefs.getString(ApplicationPreferences.RENDERER_PORT, ""))  ){
 			//goto prefs screen
-			return;
-		}*/
+			startActivity(new Intent(this, ApplicationPreferences.class));
+		}
 		
 		NoResultsFragment noResultsFragment = new NoResultsFragment();
 		currentSongRenderer = noResultsFragment;
@@ -121,6 +125,11 @@ public class MainActivity extends ActionBarActivity implements
 	    
 	    if(expandSearch)
 	    		searchItem.expandActionView();
+	    
+	    preferenceItem =  menu.add(Menu.NONE, 100, 2,R.string.action_settings)
+	        	.setIcon(android.R.drawable.ic_menu_preferences);
+	    
+	    
 		return true;
 	}
 
@@ -130,8 +139,8 @@ public class MainActivity extends ActionBarActivity implements
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+		if (id == preferenceItem.getItemId()) {
+			startActivity(new Intent(this, ApplicationPreferences.class));
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -243,10 +252,73 @@ public class MainActivity extends ActionBarActivity implements
 		selectedSong = _selectedSong;
 		
 		//tell the renderer to play the selected song
+		AsyncTask<JSONObject, Integer, JSONObject> task = new AsyncTask<JSONObject, Integer, JSONObject>(){
+			@Override
+			protected JSONObject doInBackground(JSONObject... params) {
+				
+				//TODO: call Pauls API
+				try{
+					String filename = params[0].getString(FILENAME);
+					JSONObject toSend = new JSONObject();
+					toSend.put(FILENAME, filename);
+					rendererServer.sendMessage(toSend);	
+				}catch(JSONException ex){
+					return null;
+				}
+				
+				return params[0];
+			}
+			
+			@Override
+			protected void onPostExecute(JSONObject result) {
+				if(result != null){
+					//update the fragment to display the selected song
+					currentSongRenderer.setSong(result);
+					currentSongRenderer.setState(true);
+				}else{
+					//TODO: put up a failed dialog.
+					currentSongRenderer.setSong(null);
+				}
+			}
+		};
+		task.execute(_selectedSong);
 		
-		//update the fragment to display the selected song
-		currentSongRenderer.setSong(_selectedSong);
-		currentSongRenderer.setState(true);
+	}
+	
+	@Override
+	public void onPlayClicked(boolean _playing) {
+		
+		AsyncTask<Boolean, Integer, Boolean> task = new AsyncTask<Boolean, Integer, Boolean>(){
+			@Override
+			protected Boolean doInBackground(Boolean... params) {
+				
+				//TODO: call Pauls API
+				try{
+					JSONObject toSend = new JSONObject();
+					toSend.put("play_state", params[0]);
+					rendererServer.sendMessage(toSend);	
+				}catch(JSONException ex){
+					return null;
+				}
+				
+				return params[0];
+			}
+			
+			@Override
+			protected void onPostExecute(Boolean result) {
+				if(result.booleanValue()){
+					playing = result;
+					currentSongRenderer.setState(playing);
+				}else{
+					//TODO: error message, in unknown state right now. 
+					playing = false;
+					currentSongRenderer.setState(false);
+				}
+			}
+		};
+		task.execute(_playing);
+		
+		
 		
 	}
 }

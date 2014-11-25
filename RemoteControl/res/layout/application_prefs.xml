@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/media_server_intro"
+        android:padding="10dip"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="@android:color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="50dip"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:text="@string/ip_address" />
+
+        <EditText
+            android:id="@+id/media_ip_address"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number|text"
+            android:ems="10" />
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="50dip"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:text="@string/port" />
+
+        <EditText
+            android:id="@+id/media_port"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number|text"
+            android:ems="10" />
+
+    </LinearLayout>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/renderer_server_intro" 
+        android:padding="10dip"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="@android:color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="50dip"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:text="@string/ip_address" />
+
+        <EditText
+            android:id="@+id/renderer_ip_address"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number|text"
+            android:ems="10" />
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="50dip"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:text="@string/port" />
+
+        <EditText
+            android:id="@+id/renderer_port"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number|text"
+            android:ems="10" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -2,6 +2,7 @@ package com.cs4390.remotecontrol;
 
 import org.json.JSONObject;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,18 +10,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class NoResultsFragment extends Fragment implements CurrentSongRenderer, PlayControls{
+public class NoResultsFragment extends Fragment implements CurrentSongRenderer{
 
 	private CurrentSongView currentSongView;
 	private JSONObject tempSong;
 	private Boolean tempState;
+	private PlayControls playControls;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		
 		View toReturn = inflater.inflate(R.layout.activity_main, container, false);
-		currentSongView = new CurrentSongView(toReturn, this);
+		currentSongView = new CurrentSongView(toReturn, playControls);
 		if(tempSong != null){
 			currentSongView.setSong(tempSong);
 			tempSong = null;
@@ -33,6 +35,13 @@ public class NoResultsFragment extends Fragment implements CurrentSongRenderer, 
 		return toReturn;
 	}
 
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+		
+		this.playControls = (PlayControls)activity;
+	}
+	
 	
 	@Override
 	public void setSong(JSONObject song) {
@@ -58,14 +67,6 @@ public class NoResultsFragment extends Fragment implements CurrentSongRenderer, 
 			currentSongView.setState(playing);
 		}
 		
-	}
-	
-	@Override
-	public void onPlayClicked(boolean playing) {
-		setState(playing);
-		
-		//TODO: move PLayControls to MainActivity
-		//This will use the presenter thread to send the play message
 	}
 	
 }

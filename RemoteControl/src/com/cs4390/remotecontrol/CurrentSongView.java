@@ -49,9 +49,9 @@ public class CurrentSongView implements View.OnClickListener{
 	
 	public void setState(boolean playing){
 		if(playing){
-			playPause.setImageResource(android.R.drawable.ic_media_play);
-		}else{
 			playPause.setImageResource(android.R.drawable.ic_media_pause);
+		}else{
+			playPause.setImageResource(android.R.drawable.ic_media_play);
 		}
 		
 		playingState = playing;

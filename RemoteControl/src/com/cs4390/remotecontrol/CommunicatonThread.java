@@ -21,7 +21,7 @@ public class CommunicatonThread implements Runnable {
 		this.serverAddress = _serverAddress;
 	}
 	
-	public JSONObject sendQuery(JSONObject query){
+	public JSONObject sendMessage(JSONObject query){
 		
 		setMessageToSend(query);
 		
@@ -81,6 +81,7 @@ public class CommunicatonThread implements Runnable {
 							result.put(MainActivity.ARIST, "David Bowie");
 							result.put(MainActivity.ALBUM, "The man who sold the world");
 							result.put(MainActivity.SONG, "The man who sold the world " + i);
+							result.put(MainActivity.FILENAME, "The_man_who_sold_the_world"+i);
 							array.put(result);
 						}
 					}

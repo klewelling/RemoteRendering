@@ -5,5 +5,9 @@
     <string name="no_results">No results found. Press the search button to try again.</string>
     <string name="action_settings">Settings</string>
     <string name="menu_search">Search</string>
+    <string name="media_server_intro">Media Server</string>
+    <string name="renderer_server_intro">Renderer</string>
+    <string name="ip_address">Address</string>
+    <string name="port">Port</string>
 
 </resources>

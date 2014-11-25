@@ -20,7 +20,7 @@ public class MediaServerLoader extends AsyncTaskLoader<JSONObject> {
 	public JSONObject loadInBackground() {
 		
 		
-		return mediaServer.sendQuery(messageToSend);
+		return mediaServer.sendMessage(messageToSend);
 
 	}
 	
