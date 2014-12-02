@@ -1,0 +1,226 @@
+02-Dec-2014 14:22:11.901 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version: Apache Tomcat/8.0.14
+02-Dec-2014 14:22:11.902 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:   Sep 24 2014 09:01:51
+02-Dec-2014 14:22:11.902 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:  8.0.14.0
+02-Dec-2014 14:22:11.903 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:        Mac OS X
+02-Dec-2014 14:22:11.903 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:     10.10.1
+02-Dec-2014 14:22:11.903 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:   x86_64
+02-Dec-2014 14:22:11.903 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:    1.8.0_20-b26
+02-Dec-2014 14:22:11.903 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:     Oracle Corporation
+02-Dec-2014 14:22:12.168 INFO [main] org.apache.catalina.core.AprLifecycleListener.init The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /Users/alexbiju/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+02-Dec-2014 14:22:12.460 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 14:22:12.493 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+02-Dec-2014 14:22:12.499 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 14:22:12.501 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+02-Dec-2014 14:22:12.501 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 737 ms
+02-Dec-2014 14:22:12.531 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+02-Dec-2014 14:22:12.531 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.14
+02-Dec-2014 14:22:12.540 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/docs
+02-Dec-2014 14:22:12.846 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/docs has finished in 305 ms
+02-Dec-2014 14:22:12.846 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/examples
+02-Dec-2014 14:22:13.219 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/examples has finished in 373 ms
+02-Dec-2014 14:22:13.219 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/host-manager
+02-Dec-2014 14:22:13.243 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/host-manager has finished in 24 ms
+02-Dec-2014 14:22:13.244 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/manager
+02-Dec-2014 14:22:13.264 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/manager has finished in 20 ms
+02-Dec-2014 14:22:13.264 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/ROOT
+02-Dec-2014 14:22:13.281 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/ROOT has finished in 17 ms
+02-Dec-2014 14:22:13.284 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 14:22:13.290 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 14:22:13.291 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 789 ms
+02-Dec-2014 14:23:24.270 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+02-Dec-2014 14:23:24.270 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 14:23:24.327 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 14:23:24.379 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+02-Dec-2014 14:23:24.408 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 14:23:24.414 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 14:23:24.414 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 14:23:24.415 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 14:24:21.065 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version: Apache Tomcat/8.0.14
+02-Dec-2014 14:24:21.067 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:   Sep 24 2014 09:01:51
+02-Dec-2014 14:24:21.067 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:  8.0.14.0
+02-Dec-2014 14:24:21.067 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:        Mac OS X
+02-Dec-2014 14:24:21.067 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:     10.10.1
+02-Dec-2014 14:24:21.067 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:   x86_64
+02-Dec-2014 14:24:21.067 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:    1.8.0_20-b26
+02-Dec-2014 14:24:21.067 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:     Oracle Corporation
+02-Dec-2014 14:24:21.262 INFO [main] org.apache.catalina.core.AprLifecycleListener.init The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /Users/alexbiju/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+02-Dec-2014 14:24:21.454 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 14:24:21.475 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+02-Dec-2014 14:24:21.479 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 14:24:21.481 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+02-Dec-2014 14:24:21.481 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 486 ms
+02-Dec-2014 14:24:21.503 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+02-Dec-2014 14:24:21.504 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.14
+02-Dec-2014 14:24:21.510 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/docs
+02-Dec-2014 14:24:21.748 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/docs has finished in 237 ms
+02-Dec-2014 14:24:21.748 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/examples
+02-Dec-2014 14:24:22.035 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/examples has finished in 287 ms
+02-Dec-2014 14:24:22.036 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/host-manager
+02-Dec-2014 14:24:22.062 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/host-manager has finished in 25 ms
+02-Dec-2014 14:24:22.062 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/manager
+02-Dec-2014 14:24:22.083 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/manager has finished in 21 ms
+02-Dec-2014 14:24:22.083 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/ROOT
+02-Dec-2014 14:24:22.096 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/apache-tomcat-8.0.14/webapps/ROOT has finished in 13 ms
+02-Dec-2014 14:24:22.099 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 14:24:22.105 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 14:24:22.105 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 624 ms
+02-Dec-2014 14:27:32.694 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context []
+02-Dec-2014 14:27:32.701 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc JDBC driver de-registration failed for web application []
+ java.lang.NullPointerException
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc(WebappClassLoaderBase.java:1586)
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferences(WebappClassLoaderBase.java:1521)
+	at org.apache.catalina.loader.WebappClassLoaderBase.stop(WebappClassLoaderBase.java:1473)
+	at org.apache.catalina.loader.WebappLoader.stopInternal(WebappLoader.java:447)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5477)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:827)
+	at org.apache.catalina.startup.HostConfig.undeploy(HostConfig.java:1325)
+	at org.apache.catalina.startup.HostConfig.checkResources(HostConfig.java:1273)
+	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1473)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:280)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1141)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1377)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1381)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1349)
+	at java.lang.Thread.run(Thread.java:745)
+
+02-Dec-2014 14:27:33.217 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/examples]
+02-Dec-2014 14:27:33.222 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc JDBC driver de-registration failed for web application [/examples]
+ java.lang.NullPointerException
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc(WebappClassLoaderBase.java:1586)
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferences(WebappClassLoaderBase.java:1521)
+	at org.apache.catalina.loader.WebappClassLoaderBase.stop(WebappClassLoaderBase.java:1473)
+	at org.apache.catalina.loader.WebappLoader.stopInternal(WebappLoader.java:447)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5477)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:827)
+	at org.apache.catalina.startup.HostConfig.undeploy(HostConfig.java:1325)
+	at org.apache.catalina.startup.HostConfig.checkResources(HostConfig.java:1273)
+	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1473)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:280)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1141)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1377)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1381)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1349)
+	at java.lang.Thread.run(Thread.java:745)
+
+02-Dec-2014 14:27:33.730 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/host-manager]
+02-Dec-2014 14:27:33.732 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc JDBC driver de-registration failed for web application [/host-manager]
+ java.lang.NullPointerException
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc(WebappClassLoaderBase.java:1586)
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferences(WebappClassLoaderBase.java:1521)
+	at org.apache.catalina.loader.WebappClassLoaderBase.stop(WebappClassLoaderBase.java:1473)
+	at org.apache.catalina.loader.WebappLoader.stopInternal(WebappLoader.java:447)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5477)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:827)
+	at org.apache.catalina.startup.HostConfig.undeploy(HostConfig.java:1325)
+	at org.apache.catalina.startup.HostConfig.checkResources(HostConfig.java:1273)
+	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1473)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:280)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1141)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1377)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1381)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1349)
+	at java.lang.Thread.run(Thread.java:745)
+
+02-Dec-2014 14:27:34.237 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/manager]
+02-Dec-2014 14:27:34.239 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc JDBC driver de-registration failed for web application [/manager]
+ java.lang.NullPointerException
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc(WebappClassLoaderBase.java:1586)
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferences(WebappClassLoaderBase.java:1521)
+	at org.apache.catalina.loader.WebappClassLoaderBase.stop(WebappClassLoaderBase.java:1473)
+	at org.apache.catalina.loader.WebappLoader.stopInternal(WebappLoader.java:447)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5477)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:827)
+	at org.apache.catalina.startup.HostConfig.undeploy(HostConfig.java:1325)
+	at org.apache.catalina.startup.HostConfig.checkResources(HostConfig.java:1273)
+	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1473)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:280)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1141)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1377)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1381)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1349)
+	at java.lang.Thread.run(Thread.java:745)
+
+02-Dec-2014 14:27:34.743 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/docs]
+02-Dec-2014 14:27:34.745 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc JDBC driver de-registration failed for web application [/docs]
+ java.lang.NullPointerException
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc(WebappClassLoaderBase.java:1586)
+	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferences(WebappClassLoaderBase.java:1521)
+	at org.apache.catalina.loader.WebappClassLoaderBase.stop(WebappClassLoaderBase.java:1473)
+	at org.apache.catalina.loader.WebappLoader.stopInternal(WebappLoader.java:447)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5477)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:827)
+	at org.apache.catalina.startup.HostConfig.undeploy(HostConfig.java:1325)
+	at org.apache.catalina.startup.HostConfig.checkResources(HostConfig.java:1273)
+	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1473)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:280)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:117)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1141)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1377)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1381)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1349)
+	at java.lang.Thread.run(Thread.java:745)
+
+02-Dec-2014 14:29:19.741 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+02-Dec-2014 14:29:19.742 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 14:29:19.799 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 14:29:19.855 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+02-Dec-2014 14:29:19.857 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 14:29:19.950 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 14:29:20.040 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 14:29:20.041 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 14:29:23.301 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version: Apache Tomcat/8.0.14
+02-Dec-2014 14:29:23.302 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:   Sep 24 2014 09:01:51
+02-Dec-2014 14:29:23.302 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:  8.0.14.0
+02-Dec-2014 14:29:23.303 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:        Mac OS X
+02-Dec-2014 14:29:23.303 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:     10.10.1
+02-Dec-2014 14:29:23.303 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:   x86_64
+02-Dec-2014 14:29:23.303 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:    1.8.0_20-b26
+02-Dec-2014 14:29:23.303 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:     Oracle Corporation
+02-Dec-2014 14:29:23.498 INFO [main] org.apache.catalina.core.AprLifecycleListener.init The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /Users/alexbiju/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+02-Dec-2014 14:29:23.693 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 14:29:23.713 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+02-Dec-2014 14:29:23.717 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 14:29:23.719 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+02-Dec-2014 14:29:23.720 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 487 ms
+02-Dec-2014 14:29:23.742 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+02-Dec-2014 14:29:23.742 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.14
+02-Dec-2014 14:29:23.749 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/docs
+02-Dec-2014 14:29:23.991 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/docs has finished in 242 ms
+02-Dec-2014 14:29:23.992 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/examples
+02-Dec-2014 14:29:24.282 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/examples has finished in 289 ms
+02-Dec-2014 14:29:24.282 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/host-manager
+02-Dec-2014 14:29:24.303 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/host-manager has finished in 21 ms
+02-Dec-2014 14:29:24.303 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/manager
+02-Dec-2014 14:29:24.322 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/manager has finished in 19 ms
+02-Dec-2014 14:29:24.322 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/ROOT
+02-Dec-2014 14:29:24.347 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/ROOT has finished in 24 ms
+02-Dec-2014 14:29:24.349 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 14:29:24.355 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 14:29:24.356 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 635 ms
+02-Dec-2014 14:29:58.137 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+02-Dec-2014 14:29:58.137 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 14:29:58.196 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 14:29:58.251 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+02-Dec-2014 14:29:58.277 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 14:29:58.280 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 14:29:58.280 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 14:29:58.281 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
