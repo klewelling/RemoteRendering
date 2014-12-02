@@ -13,9 +13,10 @@ import java.net.Socket;
 
 public class MediaController  implements Runnable{
 	private ServerSocket serverSocket;
+	Socket socket = null;
     public void run(){
     	
-    	Socket socket = null;
+    	
     	
     	try {
 			serverSocket = new ServerSocket(4545);
@@ -26,6 +27,7 @@ public class MediaController  implements Runnable{
     	
     	while(!Thread.currentThread().isInterrupted() && !serverSocket.isClosed()){
     		try {
+    			
 				socket = serverSocket.accept();
 				System.out.println("Started socket");
 				
@@ -37,6 +39,7 @@ public class MediaController  implements Runnable{
     	}
     	if(serverSocket != null){
         	try {
+        		socket.close();
 				serverSocket.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -51,6 +54,7 @@ public class MediaController  implements Runnable{
 	public void close(){
 		if(serverSocket != null){
 			try {
+				socket.close();
 				serverSocket.close();
 			} catch (IOException e) {
 				e.printStackTrace();

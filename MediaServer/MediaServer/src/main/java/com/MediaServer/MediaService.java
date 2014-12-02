@@ -20,7 +20,7 @@ public class MediaService implements Runnable{
 	private BufferedReader in;
 	private PrintWriter out;
     public MediaService(String filePath, MediaController mediaThread, Socket client){
-    	String pat = "/Users/alexbiju/Desktop/Mus/";
+    	String pat = "http://localhost:8080/Mus/";
     	Song s1 = new Song("Big Parade","The Lumineers","The Lumineers","1",pat+"Big_Parade.mp3");
     	Song s2 = new Song("Flapper Girl","The Lumineers","The Lumineers","2",pat+"Flapper_Girl.mp3");
     	Song s3 = new Song("Flowers In Your Hair","The Lumineers","The Lumineers","3",pat+"Flowers_In_Your_Hair.mp3");
@@ -76,6 +76,33 @@ public class MediaService implements Runnable{
         return newJson;
         
 
+    }
+public JSONObject findPath(String id){
+        
+	JSONObject newJson = new JSONObject();
+        
+        for(String key : musicLibrary.keySet()) {
+        	if(musicLibrary.get(key).getID().contains(id)){
+        		newJson.put("URL", musicLibrary.get(key).getPath());
+        	}
+        }
+        
+        
+        
+        return newJson;
+        
+
+    }
+public Boolean findIfPath(String id){
+    
+	JSONObject newJson = new JSONObject();
+        
+        for(String key : musicLibrary.keySet()) {
+        	if(musicLibrary.get(key).getID().contains(id)){
+        		return true;
+        	}
+        }
+        return false;
     }
     public JSONObject topTen(){
     	JSONArray jsonArray = new JSONArray();
@@ -139,7 +166,9 @@ public class MediaService implements Runnable{
 								out.println(jsonOut.toString());
 							}
 						}else if("Presenter".equalsIgnoreCase(jsonIn.getString("Type"))){
-							
+							if("Get".equalsIgnoreCase(jsonIn.getString("Request"))){
+								out.println(findPath(jsonIn.getString("Get")));
+							}
 						}else{
 							JSONObject jsonOut = new JSONObject();
 							jsonOut.put("Request", "Invalid");
@@ -147,6 +176,12 @@ public class MediaService implements Runnable{
 						}
 					}else if(jsonIn.has("Command")){
 						if("SHUTDOWN".equalsIgnoreCase(jsonIn.getString("Command"))){
+							try {
+								Thread.sleep(1000);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 							System.out.println("Shut Down server");
 							mediaController.close();
 							break;
