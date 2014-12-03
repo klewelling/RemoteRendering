@@ -224,3 +224,98 @@
 02-Dec-2014 14:29:58.280 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
 02-Dec-2014 14:29:58.280 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
 02-Dec-2014 14:29:58.281 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 17:55:44.412 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version: Apache Tomcat/8.0.14
+02-Dec-2014 17:55:44.413 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:   Sep 24 2014 09:01:51
+02-Dec-2014 17:55:44.413 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:  8.0.14.0
+02-Dec-2014 17:55:44.413 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:        Mac OS X
+02-Dec-2014 17:55:44.413 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:     10.10.1
+02-Dec-2014 17:55:44.414 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:   x86_64
+02-Dec-2014 17:55:44.414 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:    1.8.0_20-b26
+02-Dec-2014 17:55:44.414 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:     Oracle Corporation
+02-Dec-2014 17:55:44.612 INFO [main] org.apache.catalina.core.AprLifecycleListener.init The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /Users/alexbiju/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+02-Dec-2014 17:55:44.803 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 17:55:44.825 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+02-Dec-2014 17:55:44.830 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 17:55:44.831 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+02-Dec-2014 17:55:44.832 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 491 ms
+02-Dec-2014 17:55:44.853 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+02-Dec-2014 17:55:44.853 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.14
+02-Dec-2014 17:55:44.860 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/docs
+02-Dec-2014 17:55:45.105 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/docs has finished in 245 ms
+02-Dec-2014 17:55:45.106 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/examples
+02-Dec-2014 17:55:45.392 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/examples has finished in 286 ms
+02-Dec-2014 17:55:45.392 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/host-manager
+02-Dec-2014 17:55:45.416 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/host-manager has finished in 23 ms
+02-Dec-2014 17:55:45.416 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/manager
+02-Dec-2014 17:55:45.438 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/manager has finished in 22 ms
+02-Dec-2014 17:55:45.438 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/ROOT
+02-Dec-2014 17:55:45.460 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/ROOT has finished in 22 ms
+02-Dec-2014 17:55:45.463 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 17:55:45.468 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 17:55:45.468 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 636 ms
+02-Dec-2014 19:24:08.123 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version: Apache Tomcat/8.0.14
+02-Dec-2014 19:24:08.124 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:   Sep 24 2014 09:01:51
+02-Dec-2014 19:24:08.124 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:  8.0.14.0
+02-Dec-2014 19:24:08.125 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:        Mac OS X
+02-Dec-2014 19:24:08.125 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:     10.10.1
+02-Dec-2014 19:24:08.125 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:   x86_64
+02-Dec-2014 19:24:08.125 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:    1.8.0_20-b26
+02-Dec-2014 19:24:08.125 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:     Oracle Corporation
+02-Dec-2014 19:24:08.320 INFO [main] org.apache.catalina.core.AprLifecycleListener.init The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /Users/alexbiju/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+02-Dec-2014 19:24:08.518 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 19:24:08.539 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+02-Dec-2014 19:24:08.544 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 19:24:08.545 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+02-Dec-2014 19:24:08.546 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 493 ms
+02-Dec-2014 19:24:08.568 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+02-Dec-2014 19:24:08.568 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.14
+02-Dec-2014 19:24:08.575 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/docs
+02-Dec-2014 19:24:08.809 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/docs has finished in 233 ms
+02-Dec-2014 19:24:08.809 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/examples
+02-Dec-2014 19:24:09.091 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/examples has finished in 282 ms
+02-Dec-2014 19:24:09.092 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/host-manager
+02-Dec-2014 19:24:09.115 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/host-manager has finished in 22 ms
+02-Dec-2014 19:24:09.115 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/manager
+02-Dec-2014 19:24:09.133 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/manager has finished in 18 ms
+02-Dec-2014 19:24:09.133 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/ROOT
+02-Dec-2014 19:24:09.153 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/ROOT has finished in 20 ms
+02-Dec-2014 19:24:09.155 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 19:24:09.161 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 19:24:09.161 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 615 ms
+02-Dec-2014 19:25:04.173 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+02-Dec-2014 19:25:04.174 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 19:25:04.228 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 19:25:04.282 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+02-Dec-2014 19:25:04.306 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 19:25:04.409 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 19:25:04.510 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 19:25:04.512 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 19:25:06.022 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version: Apache Tomcat/8.0.14
+02-Dec-2014 19:25:06.024 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:   Sep 24 2014 09:01:51
+02-Dec-2014 19:25:06.024 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:  8.0.14.0
+02-Dec-2014 19:25:06.024 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:        Mac OS X
+02-Dec-2014 19:25:06.024 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:     10.10.1
+02-Dec-2014 19:25:06.024 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:   x86_64
+02-Dec-2014 19:25:06.024 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:    1.8.0_20-b26
+02-Dec-2014 19:25:06.024 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:     Oracle Corporation
+02-Dec-2014 19:25:06.221 INFO [main] org.apache.catalina.core.AprLifecycleListener.init The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /Users/alexbiju/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+02-Dec-2014 19:25:06.418 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 19:25:06.438 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+02-Dec-2014 19:25:06.442 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 19:25:06.444 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+02-Dec-2014 19:25:06.445 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 491 ms
+02-Dec-2014 19:25:06.467 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+02-Dec-2014 19:25:06.467 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.14
+02-Dec-2014 19:25:06.474 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/docs
+02-Dec-2014 19:25:06.714 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/docs has finished in 239 ms
+02-Dec-2014 19:25:06.714 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/examples
+02-Dec-2014 19:25:06.994 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/examples has finished in 280 ms
+02-Dec-2014 19:25:06.994 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/host-manager
+02-Dec-2014 19:25:07.018 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/host-manager has finished in 24 ms
+02-Dec-2014 19:25:07.018 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/manager
+02-Dec-2014 19:25:07.039 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/manager has finished in 21 ms
+02-Dec-2014 19:25:07.039 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/ROOT
+02-Dec-2014 19:25:07.062 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/alexbiju/Desktop/JavaProjects/RemoteRendering/TomCatHTTP/webapps/ROOT has finished in 22 ms
+02-Dec-2014 19:25:07.064 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+02-Dec-2014 19:25:07.069 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+02-Dec-2014 19:25:07.070 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 625 ms

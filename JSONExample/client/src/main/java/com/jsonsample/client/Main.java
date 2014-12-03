@@ -21,13 +21,14 @@ public class Main {
 			PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 			BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			
-			for(int i = 0; i <10; i++){
+			for(int i = 0; i <1; i++){
 				
 			
 				JSONObject toSend = new JSONObject();
-				toSend.put("Type", "Presenter");
-				toSend.put("Request", "Get");
-				toSend.put("Get", "1");
+				toSend.put("Type", "Controller");
+				toSend.put("Request", "Search");
+				toSend.put("Search", "Parade");
+				
 				
 				out.println(toSend.toString());
 				
