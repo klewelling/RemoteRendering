@@ -14,6 +14,7 @@ public class RenderServer {
 
     public static void main(String[] args) throws IOException {
         RenderController rThread = new RenderController();
+        
         Thread mediaThread = new Thread(rThread);
         mediaThread.start();
         try {

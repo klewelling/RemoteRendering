@@ -14,6 +14,10 @@ import java.net.Socket;
 public class RenderController  implements Runnable{
 	private ServerSocket serverSocket;
 	Socket socket = null;
+	MediaPlayer mediaplayer = null;
+	public RenderController(MediaPlayer media){
+		mediaplayer = media;
+	}
     public void run(){
     	
     	
@@ -31,7 +35,7 @@ public class RenderController  implements Runnable{
 				socket = serverSocket.accept();
 				System.out.println("Started socket");
 				
-				RenderService media = new RenderService("/Users/alexbiju/Desktop/Musi",this,socket);
+				RenderService media = new RenderService("/Users/alexbiju/Desktop/Musi",this,socket, mediaplayer);
 				new Thread(media).start();
 			} catch (IOException e) {
 				e.printStackTrace();

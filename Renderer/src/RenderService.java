@@ -1,4 +1,4 @@
-package com.MediaServer;
+
 import java.util.*;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,8 +18,10 @@ public class RenderService implements Runnable{
 	private Socket client;
 	private BufferedReader in;
 	private PrintWriter out;
-    public RenderService(String filePath, RenderController mediaThread, Socket client){
+	MediaPlayer mediaplayer = null;
+    public RenderService(String filePath, RenderController mediaThread, Socket client, MediaPlayer media){
         RenderController = mediaThread;
+        mediaplayer = media;
         this.client = client;
         
         try {
