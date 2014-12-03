@@ -4,14 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-import org.apache.commons.io.*;
-
-import javax.swing.JFileChooser;
-
 public class Start {
-
-	
-	private static JFileChooser ourFileSelector = new JFileChooser();
 	
 	public static void main(String[] args) throws IOException, InterruptedException
 	{
