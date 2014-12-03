@@ -1,6 +1,7 @@
 
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 
 import org.apache.commons.io.*;
@@ -12,28 +13,21 @@ public class Start {
 	
 	private static JFileChooser ourFileSelector = new JFileChooser();
 	
-	public static void main(String[] args)
+	public static void main(String[] args) throws IOException, InterruptedException
 	{
 		
-		String vlcPath = "",mediaPath="";
-		String URL = "";
-		File mediaFile="C:\\Users\\Isaac\\Downloads\\1989";
-		URL fileURL = new URL("https://github.com/isaacbutterfield/pdf/blob/master/02%20Blank%20Space.mp3");
-		File ourFile;
+		String vlcPath = "C:\\Users\\Isaac\\Documents\\vlc-2.1.5";
+		String mediaFile="C:\\Users\\Isaac\\Downloads\\1989\\test.mp3";
+		URL fileURL = new URL("http://192.168.1.132:8080/Mus/Big_Parade.mp3");
+
+		org.apache.commons.io.FileUtils.copyURLToFile(fileURL, new File(mediaFile));
 		
-		ourFileSelector.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-		ourFileSelector.showSaveDialog(null);
-		ourFile = ourFileSelector.getSelectedFile();
-		vlcPath = ourFile.getAbsolutePath();
-		
-		org.apache.commons.io.FileUtils.copyURLToFile(fileURL, mediaFile);
-		
-		ourFileSelector.setFileSelectionMode(JFileChooser.FILES_ONLY);
-		ourFileSelector.showSaveDialog(null);
-		ourFile = ourFileSelector.getSelectedFile();
-		mediaPath = ourFile.getAbsolutePath();
-		
-		new MediaPlayer(vlcPath, mediaPath).run();
+		MediaPlayer ourPlayer = new MediaPlayer(vlcPath, mediaFile);
+		ourPlayer.run();
+		Thread.sleep(3000);
+		ourPlayer.pause();
+		Thread.sleep(1000);
+		ourPlayer.play();
 		
 	}
 }

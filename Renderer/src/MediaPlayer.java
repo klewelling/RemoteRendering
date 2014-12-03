@@ -1,13 +1,10 @@
 
 import javax.swing.JFrame;
 
-import com.sun.jna.Native;
 import com.sun.jna.NativeLibrary;
 
-import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
 import uk.co.caprica.vlcj.runtime.RuntimeUtil;
-import uk.co.caprica.vlcj.runtime.x.LibXUtil;
 
 public class MediaPlayer {
 
@@ -21,8 +18,6 @@ public class MediaPlayer {
 		
 		this.mediaPath = mediaURL;
 		NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), vlcPath);
-		//Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
-		//LibXUtil.initialise();
 		
 		ourMediaPlayer = new EmbeddedMediaPlayerComponent();
 		
@@ -35,6 +30,18 @@ public class MediaPlayer {
 	public void run()
 	{
 		
-		ourMediaPlayer.getMediaPlayer().playMedia(mediaPath);
+		ourMediaPlayer.getMediaPlayer().startMedia(mediaPath);
+	}
+	
+	public void pause()
+	{
+		
+		ourMediaPlayer.getMediaPlayer().pause();
+	}
+	
+	public void play()
+	{
+		
+		ourMediaPlayer.getMediaPlayer().play();
 	}
 }
