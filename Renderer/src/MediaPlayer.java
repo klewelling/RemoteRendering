@@ -1,4 +1,9 @@
 
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import javax.swing.JFrame;
 
 import com.sun.jna.NativeLibrary;
@@ -11,12 +16,12 @@ public class MediaPlayer {
 	
 	private JFrame ourFrame = new JFrame();
 	private EmbeddedMediaPlayerComponent ourMediaPlayer;
-	private String mediaPath = "";
+	private String mediaPath = "C:\\Users\\Isaac\\Downloads\\song.mp3";
+	private boolean flag = true;
+	private URL fileURL = null;
 	
-	MediaPlayer(String vlcPath, String mediaURL)
+	MediaPlayer(String vlcPath)
 	{
-		
-		this.mediaPath = mediaURL;
 		NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(), vlcPath);
 		
 		ourMediaPlayer = new EmbeddedMediaPlayerComponent();
@@ -27,21 +32,27 @@ public class MediaPlayer {
 		ourFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
-	public void run()
-	{
-		
-		ourMediaPlayer.getMediaPlayer().startMedia(mediaPath);
-	}
-	
 	public void pause()
 	{
+		if(flag){
+			ourMediaPlayer.getMediaPlayer().pause();
+		}
+		else {
+			ourMediaPlayer.getMediaPlayer().play();
+			}
 		
-		ourMediaPlayer.getMediaPlayer().pause();
+		flag = !flag;
 	}
 	
-	public void play()
+	public void play(String mediaURL) throws IOException
 	{
-		
-		ourMediaPlayer.getMediaPlayer().play();
+		if(mediaURL.startsWith("C:\\")){
+			mediaPath = mediaURL;
+		}
+		else {
+		fileURL = new URL(mediaURL);
+		org.apache.commons.io.FileUtils.copyURLToFile(fileURL, new File(mediaPath));
+		}
+		ourMediaPlayer.getMediaPlayer().playMedia(mediaPath);		
 	}
 }

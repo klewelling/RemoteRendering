@@ -18,7 +18,8 @@ public class RenderService implements Runnable{
 	private Socket client;
 	private BufferedReader in;
 	private PrintWriter out;
-	MediaPlayer mediaplayer = null;
+	MediaPlayer mediaplayer = new MediaPlayer("C:\\Users\\Isaac\\Documents\\vlc-2.1.5");
+	
     public RenderService(String filePath, RenderController mediaThread, Socket client, MediaPlayer media){
         RenderController = mediaThread;
         mediaplayer = media;
@@ -34,10 +35,7 @@ public class RenderService implements Runnable{
         
     }
 
-
-
-
-
+    
 	public void run() {
 		
 			try {
@@ -55,9 +53,9 @@ public class RenderService implements Runnable{
 						if("Controller".equalsIgnoreCase(jsonIn.getString("Type"))){
 							if(jsonIn.has("Action")){
 								if("Play".equalsIgnoreCase(jsonIn.getString("Action"))){
-									
+									mediaplayer.play(jsonIn.getString("Id"));
 								}else if("Pause".equalsIgnoreCase(jsonIn.getString("Action"))){
-									
+									mediaplayer.pause();
 								}else{
 									JSONObject jsonOut = new JSONObject();
 									jsonOut.put("Result", "Failure");
@@ -95,7 +93,7 @@ public class RenderService implements Runnable{
 						out.println(jsonOut.toString());
 					}
 				}
-			} catch (IOException e) {
+			} catch (IOException | JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
