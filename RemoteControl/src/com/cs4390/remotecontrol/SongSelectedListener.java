@@ -1,10 +1,10 @@
 package com.cs4390.remotecontrol;
 
-import org.json.JSONObject;
+import Song.Song;
 
 public interface SongSelectedListener {
 
-	void setSelectedSong(JSONObject selectedSong);
+	void setSelectedSong(Song selectedSong);
 	
-	JSONObject getSelectedSong();
+	Song getSelectedSong();
 }

@@ -1,9 +1,8 @@
 package com.cs4390.remotecontrol;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 
+import Song.Song;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,20 +10,19 @@ import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
 public class ResultsFragment extends ListFragment implements CurrentSongRenderer {
 
 	private SongSelectedListener selectedListener;
 	private PlayControls playControls;
-	private JSONArray results;
+	private List<Song> results;
 	private CurrentSongView currentSongView;
-	private JSONObject tempSong;
+	private Song tempSong;
 	private Boolean tempState;
 	
 	
-	public ResultsFragment(JSONArray _results){
+	public ResultsFragment(List<Song> _results){
 		this.results = _results;
 	}
 
@@ -67,14 +65,13 @@ public class ResultsFragment extends ListFragment implements CurrentSongRenderer
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		
-		try{
-			selectedListener.setSelectedSong(results.getJSONObject(position));	
-		}catch(JSONException ex){throw new RuntimeException(ex);}
+		selectedListener.setSelectedSong(results.get(position) );
+		
 		
 	}
 
 	@Override
-	public void setSong(JSONObject song) {
+	public void setSong(Song song) {
 		if(currentSongView == null){
 			tempSong = song;
 		}else{

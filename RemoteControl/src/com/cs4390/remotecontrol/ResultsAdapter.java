@@ -1,9 +1,12 @@
 package com.cs4390.remotecontrol;
 
+import java.util.List;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import Song.Song;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +16,10 @@ import android.widget.TextView;
 
 public class ResultsAdapter extends ArrayAdapter<String>{
 
-	private JSONArray results;
+	private List<Song> results;
 	
-	public ResultsAdapter(Context context, JSONArray _results) {
-		super(context, R.layout.results, new String[_results.length()]);
+	public ResultsAdapter(Context context, List<Song> _results) {
+		super(context, R.layout.results, new String[_results.size()]);
 		this.results = _results;
 	}
 
@@ -30,13 +33,9 @@ public class ResultsAdapter extends ArrayAdapter<String>{
     	TextView text1 = (TextView)rowView.findViewById(android.R.id.text1);
     	TextView text2 = (TextView)rowView.findViewById(android.R.id.text2);
     	
-    	try{
-    		JSONObject row = results.getJSONObject(position);
-    		text1.setText(row.getString(MainActivity.ARIST));
-    		text2.setText(row.getString(MainActivity.SONG) + " (" + row.getString(MainActivity.ALBUM) + ")");
-    	}catch(JSONException ex){
-    		throw new RuntimeException(ex);
-    	}
+    	Song row = results.get(position);
+		text1.setText(row.getArtist());
+		text2.setText( row.getTitle()  + " (" +  row.getAlbum() + ")");
     	
     	
 		return rowView;

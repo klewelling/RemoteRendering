@@ -2,6 +2,7 @@ package com.cs4390.remotecontrol;
 
 import org.json.JSONObject;
 
+import Song.Song;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,7 +14,7 @@ import android.view.ViewGroup;
 public class NoResultsFragment extends Fragment implements CurrentSongRenderer{
 
 	private CurrentSongView currentSongView;
-	private JSONObject tempSong;
+	private Song tempSong;
 	private Boolean tempState;
 	private PlayControls playControls;
 	
@@ -44,7 +45,7 @@ public class NoResultsFragment extends Fragment implements CurrentSongRenderer{
 	
 	
 	@Override
-	public void setSong(JSONObject song) {
+	public void setSong(Song song) {
 		if(currentSongView == null){
 			tempSong = song;
 		}else{

@@ -1,9 +1,11 @@
 package com.cs4390.remotecontrol;
 
-import org.json.JSONArray;
+import java.util.List;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import Song.Song;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -19,9 +21,9 @@ import android.view.MenuItem;
 
 public class MainActivity extends ActionBarActivity implements
 		SearchView.OnQueryTextListener, SearchView.OnSuggestionListener,
-		LoaderCallbacks<JSONObject>, SongSelectedListener, PlayControls {
+		LoaderCallbacks<List<Song>>, SongSelectedListener, PlayControls {
 
-	private JSONObject selectedSong;
+	private Song selectedSong;
 	private CurrentSongRenderer currentSongRenderer;
 	private boolean playing = true;
 	
@@ -44,10 +46,13 @@ public class MainActivity extends ActionBarActivity implements
 	public static final String ARIST = "ARIST";
 	public static final String SONG = "SONG";
 	public static final String ALBUM = "ALBUM";
-	public static final String FILENAME = "FILENAME";
+	public static final String ID = "ID";
+	public static final String PAUSE = "PAUSE";
 	public static final String RESULTS = "RESULTS";
 	
 	private static final int URL_SEARCH_LOADER = 0;
+	
+	private boolean goToPrefs = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -59,32 +64,38 @@ public class MainActivity extends ActionBarActivity implements
 				"".equals(prefs.getString(ApplicationPreferences.RENDERER_IP_ADDRESS, ""))  ||
 				"".equals(prefs.getString(ApplicationPreferences.RENDERER_PORT, ""))  ){
 			//goto prefs screen
+			goToPrefs = true;
 			startActivity(new Intent(this, ApplicationPreferences.class));
+		}else{
+			goToPrefs = false;
+			NoResultsFragment noResultsFragment = new NoResultsFragment();
+			currentSongRenderer = noResultsFragment;
+			getSupportFragmentManager().beginTransaction()
+	        	.add(android.R.id.content, noResultsFragment).commit();
+
+			
+			String mediaServerAddress = prefs.getString(ApplicationPreferences.MEDIA_IP_ADDRESS, null);
+			String mediaServerPort = prefs.getString(ApplicationPreferences.MEDIA_PORT, null);
+			String rendererServerAddress = prefs.getString(ApplicationPreferences.RENDERER_IP_ADDRESS, null);
+			String rendererServerPort = prefs.getString(ApplicationPreferences.RENDERER_PORT, null);
+			
+			
+			this.mediaServer = new MediaServerCommThread(mediaServerAddress, mediaServerPort);
+			this.rendererServer = new RendererCommThread(rendererServerAddress, rendererServerPort);
+			Thread mediaThread = new Thread(mediaServer);
+			mediaThread.start();
+			
+			Thread rendererThread = new Thread(rendererServer);
+			rendererThread.start();
+			
+			expandSearch = false;
+	        if(savedInstanceState != null && savedInstanceState.containsKey(CURRENTLY_SEARCHING) && 
+	        		savedInstanceState.getBoolean(CURRENTLY_SEARCHING)){
+	        	expandSearch = true;
+	        }	
 		}
 		
-		NoResultsFragment noResultsFragment = new NoResultsFragment();
-		currentSongRenderer = noResultsFragment;
-		getSupportFragmentManager().beginTransaction()
-        	.add(android.R.id.content, noResultsFragment).commit();
-
-		/*
-		String mediaServerAddress = prefs.getString(MEDIA_SERVER_ADDRESS, null);
-		String rendererServerAddress = prefs.getString(RENDERER_SERVER_ADDRESS, null);
-		*/
 		
-		this.mediaServer = new CommunicatonThread("mediaserver");
-		this.rendererServer = new CommunicatonThread("rendererserver");
-		Thread mediaThread = new Thread(mediaServer);
-		mediaThread.start();
-		
-		Thread rendererThread = new Thread(rendererServer);
-		rendererThread.start();
-		
-		expandSearch = false;
-        if(savedInstanceState != null && savedInstanceState.containsKey(CURRENTLY_SEARCHING) && 
-        		savedInstanceState.getBoolean(CURRENTLY_SEARCHING)){
-        	expandSearch = true;
-        }
 	}
 	
 	
@@ -92,7 +103,8 @@ public class MainActivity extends ActionBarActivity implements
 	protected void onResume() {
 		super.onResume();
 		
-		getSupportLoaderManager().initLoader(URL_SEARCH_LOADER, null, this);
+		if(!goToPrefs)
+			getSupportLoaderManager().initLoader(URL_SEARCH_LOADER, null, this);
 	}
 
 	@Override
@@ -167,7 +179,7 @@ public class MainActivity extends ActionBarActivity implements
 	};
 	
 	@Override
-	public Loader<JSONObject> onCreateLoader(int id, Bundle arg1) {
+	public Loader<List<Song>> onCreateLoader(int id, Bundle arg1) {
 		
 		if(id == URL_SEARCH_LOADER){
 			
@@ -186,56 +198,51 @@ public class MainActivity extends ActionBarActivity implements
 	}
 	
 	@Override
-	public void onLoaderReset(Loader<JSONObject> arg0) {
+	public void onLoaderReset(Loader<List<Song>> arg0) {
 		
 	}
 	
 	@Override
-	public void onLoadFinished(Loader<JSONObject> loader, JSONObject response) {
+	public void onLoadFinished(Loader<List<Song>> loader, List<Song> response) {
 		if(loader.getId() == URL_SEARCH_LOADER){
-			if(response.has(RESULTS)){
-				try
-				{
-					JSONArray array = response.getJSONArray(RESULTS);
-					if(array.length() != 0){
-						if(searchItem != null)
-							searchItem.collapseActionView();
-						
-						ResultsFragment listFragment = new ResultsFragment(array);
-						currentSongRenderer = listFragment;
-						
-						FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-						transaction.replace(android.R.id.content, listFragment);
-						transaction.addToBackStack(null);
-
-						// Commit the transaction
-						transaction.commitAllowingStateLoss();
-						
-					}else{
-						NoResultsFragment noResultsFragment = new NoResultsFragment();
-						currentSongRenderer = noResultsFragment;
-						FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-						transaction.replace(android.R.id.content, noResultsFragment);
-						transaction.addToBackStack(null);
-
-						// Commit the transaction
-						transaction.commitAllowingStateLoss();						
-					}
+			//if(response.has(RESULTS)){
+			{
+				if(response.size() != 0){
+					if(searchItem != null)
+						searchItem.collapseActionView();
 					
-					if(currentSongRenderer != null){
-						if(selectedSong != null){
-							currentSongRenderer.setSong(selectedSong);
-							currentSongRenderer.setState(playing);
-						}else{
-							currentSongRenderer.setSong(null);
-						}
-					}
+					ResultsFragment listFragment = new ResultsFragment(response);
+					currentSongRenderer = listFragment;
 					
-				}catch(JSONException ex){
-					throw new RuntimeException(ex);
+					FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+					transaction.replace(android.R.id.content, listFragment);
+					transaction.addToBackStack(null);
+
+					// Commit the transaction
+					transaction.commitAllowingStateLoss();
+					
+				}else{
+					NoResultsFragment noResultsFragment = new NoResultsFragment();
+					currentSongRenderer = noResultsFragment;
+					FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+					transaction.replace(android.R.id.content, noResultsFragment);
+					transaction.addToBackStack(null);
+
+					// Commit the transaction
+					transaction.commitAllowingStateLoss();						
 				}
+				
+				if(currentSongRenderer != null){
+					if(selectedSong != null){
+						currentSongRenderer.setSong(selectedSong);
+						currentSongRenderer.setState(playing);
+					}else{
+						currentSongRenderer.setSong(null);
+					}
+				}
+
 				
 			}
 			
@@ -243,24 +250,24 @@ public class MainActivity extends ActionBarActivity implements
 	}
 	
 	@Override
-	public JSONObject getSelectedSong() {
+	public Song getSelectedSong() {
 		return selectedSong;
 	}
 	
 	@Override
-	public void setSelectedSong(JSONObject _selectedSong) {
+	public void setSelectedSong(Song _selectedSong) {
 		selectedSong = _selectedSong;
 		
 		//tell the renderer to play the selected song
-		AsyncTask<JSONObject, Integer, JSONObject> task = new AsyncTask<JSONObject, Integer, JSONObject>(){
+		AsyncTask<Song, Integer, Song> task = new AsyncTask<Song, Integer, Song>(){
 			@Override
-			protected JSONObject doInBackground(JSONObject... params) {
+			protected Song doInBackground(Song... params) {
 				
 				//TODO: call Pauls API
 				try{
-					String filename = params[0].getString(FILENAME);
+					String idToSend = params[0].getID();
 					JSONObject toSend = new JSONObject();
-					toSend.put(FILENAME, filename);
+					toSend.put(ID, idToSend);
 					rendererServer.sendMessage(toSend);	
 				}catch(JSONException ex){
 					return null;
@@ -270,7 +277,7 @@ public class MainActivity extends ActionBarActivity implements
 			}
 			
 			@Override
-			protected void onPostExecute(JSONObject result) {
+			protected void onPostExecute(Song result) {
 				if(result != null){
 					//update the fragment to display the selected song
 					currentSongRenderer.setSong(result);
@@ -292,10 +299,10 @@ public class MainActivity extends ActionBarActivity implements
 			@Override
 			protected Boolean doInBackground(Boolean... params) {
 				
-				//TODO: call Pauls API
+				//pause
 				try{
 					JSONObject toSend = new JSONObject();
-					toSend.put("play_state", params[0]);
+					toSend.put(PAUSE, params[0]);
 					rendererServer.sendMessage(toSend);	
 				}catch(JSONException ex){
 					return null;
