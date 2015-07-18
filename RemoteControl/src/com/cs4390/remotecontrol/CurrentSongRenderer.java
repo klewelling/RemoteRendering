@@ -1,10 +1,10 @@
 package com.cs4390.remotecontrol;
 
-import org.json.JSONObject;
+import Song.Song;
 
 public interface CurrentSongRenderer {
 
-	void setSong(JSONObject song);
+	void setSong(Song song);
 	
 	void setState(boolean playing);
 }

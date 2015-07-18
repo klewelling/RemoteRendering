@@ -10,17 +10,18 @@ public class Start {
 	{
 		
 		String vlcPath = "C:\\Users\\Isaac\\Documents\\vlc-2.1.5";
-		String mediaFile="C:\\Users\\Isaac\\Downloads\\1989\\test.mp3";
-		URL fileURL = new URL("http://192.168.1.132:8080/Mus/Big_Parade.mp3");
-
-		org.apache.commons.io.FileUtils.copyURLToFile(fileURL, new File(mediaFile));
+		String fileURL = "http://192.168.1.132:8080/Mus/Big_Parade.mp3";	
+		String localFile = "C:\\Users\\Isaac\\Downloads\\1989\\BlankSpace.mp3";
 		
-		MediaPlayer ourPlayer = new MediaPlayer(vlcPath, mediaFile);
-		ourPlayer.run();
+		
+		MediaPlayer ourPlayer = new MediaPlayer(vlcPath);
+		ourPlayer.play(fileURL);
 		Thread.sleep(3000);
 		ourPlayer.pause();
 		Thread.sleep(1000);
-		ourPlayer.play();
+		ourPlayer.pause();
+		Thread.sleep(5000);
+		ourPlayer.play(fileURL);
 		
 	}
 }

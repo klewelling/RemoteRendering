@@ -1,24 +1,42 @@
 package com.cs4390.remotecontrol;
 
+import java.util.List;
 import java.util.concurrent.Semaphore;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
+
+import Song.Song;
 
 
 public class CommunicatonThread implements Runnable {
 
-	private String serverAddress;
-	
 	//NEVER ACCESS THESE DIRECTLY. use the thread-safe get/set methods
 	private JSONObject messageToSend;
 	private JSONObject messageReceived;
+	private List<Song> songsReceived;
 	
-	private Semaphore newMessage = new Semaphore(0);
-	private Semaphore responseMessage = new Semaphore(0);
+	protected Semaphore newMessage = new Semaphore(0);
+	protected Semaphore responseMessage = new Semaphore(0);
 	
-	public CommunicatonThread(String _serverAddress){
-		this.serverAddress = _serverAddress;
+	public CommunicatonThread(){
+		
+	}
+	
+	public List<Song> sendSongsQuery(JSONObject query){
+		
+		setMessageToSend(query);
+		
+		newMessage.release();
+		
+		try{
+			responseMessage.acquire();
+		}catch(InterruptedException ex){
+			throw new RuntimeException(ex);
+		}
+		
+		List<Song> toReturn = getSongsReceived();
+		return toReturn;
+		
 	}
 	
 	public JSONObject sendMessage(JSONObject query){
@@ -37,66 +55,33 @@ public class CommunicatonThread implements Runnable {
 		return toReturn;
 	}
 	
-	private synchronized JSONObject getMessageToSend() {
+	protected synchronized JSONObject getMessageToSend() {
 		return messageToSend;
 	}
 
-	private synchronized void setMessageToSend(JSONObject messageToSend) {
+	protected synchronized void setMessageToSend(JSONObject messageToSend) {
 		this.messageToSend = messageToSend;
 	}
 
-	private synchronized JSONObject getMessageReceived() {
+	protected synchronized JSONObject getMessageReceived() {
 		return this.messageReceived;
 	}
+	
+	protected synchronized List<Song> getSongsReceived() {
+		return this.songsReceived;
+	}
 
-	private synchronized void setMessageReceived(JSONObject messageReceived) {
+	protected synchronized void setMessageReceived(JSONObject messageReceived) {
 		this.messageReceived = messageReceived;
 	}
 
+	protected synchronized void setSongsReceived(List<Song> _songsReceived) {
+		this.songsReceived = _songsReceived;
+	}
+	
 	@Override
 	public void run() {
-		try{
-			while(!Thread.currentThread().isInterrupted() ){
-				
-				//Create a socket and get the in/out streams
-				
-				
-				//wait for a message to send
-				newMessage.acquire();
-				
-				
-				JSONObject msgToSendToMediaServer = getMessageToSend();
-				//send message to media server and get the response				
-				
-				//Faked remote communication session
-				JSONObject toReturn = new JSONObject();
-				if(msgToSendToMediaServer.has(MainActivity.MEDIA_QUERY)){
-					String searchString = msgToSendToMediaServer.getString(MainActivity.MEDIA_QUERY);
-					
-					JSONArray array = new JSONArray();
-					if(searchString.startsWith("B") || searchString.startsWith("b")){
-						
-						for(int i=0; i < 10; i++){
-							JSONObject result = new JSONObject();
-							result.put(MainActivity.ARIST, "David Bowie");
-							result.put(MainActivity.ALBUM, "The man who sold the world");
-							result.put(MainActivity.SONG, "The man who sold the world " + i);
-							result.put(MainActivity.FILENAME, "The_man_who_sold_the_world"+i);
-							array.put(result);
-						}
-					}
-					toReturn.put(MainActivity.RESULTS, array);
-					
-				}
-				setMessageReceived(toReturn);
-				
-				//let the thread that called sendQuery know its response is ready
-				responseMessage.release();
-				
-			}
-		}catch(Exception ex){
-			throw new RuntimeException(ex);
-		}
+		
 	}
 
 

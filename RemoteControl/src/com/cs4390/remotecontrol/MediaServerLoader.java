@@ -1,11 +1,14 @@
 package com.cs4390.remotecontrol;
 
+import java.util.List;
+
 import org.json.JSONObject;
 
+import Song.Song;
 import android.content.Context;
 import android.support.v4.content.AsyncTaskLoader;
 
-public class MediaServerLoader extends AsyncTaskLoader<JSONObject> {
+public class MediaServerLoader extends AsyncTaskLoader<List<Song>> {
 
 	private CommunicatonThread mediaServer;
 	private JSONObject messageToSend;
@@ -17,10 +20,10 @@ public class MediaServerLoader extends AsyncTaskLoader<JSONObject> {
 	}
 	
 	@Override
-	public JSONObject loadInBackground() {
+	public List<Song> loadInBackground() {
 		
 		
-		return mediaServer.sendMessage(messageToSend);
+		return mediaServer.sendSongsQuery(messageToSend);
 
 	}
 	

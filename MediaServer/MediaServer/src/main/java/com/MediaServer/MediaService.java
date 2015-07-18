@@ -20,7 +20,7 @@ public class MediaService implements Runnable{
 	private BufferedReader in;
 	private PrintWriter out;
     public MediaService(String filePath, MediaController mediaThread, Socket client){
-    	String pat = "http://localhost:8080/Mus/";
+    	String pat = "http://192.168.43.194:8080//Mus/";
     	Song s1 = new Song("Big Parade","The Lumineers","The Lumineers","1",pat+"Big_Parade.mp3");
     	Song s2 = new Song("Flapper Girl","The Lumineers","The Lumineers","2",pat+"Flapper_Girl.mp3");
     	Song s3 = new Song("Flowers In Your Hair","The Lumineers","The Lumineers","3",pat+"Flowers_In_Your_Hair.mp3");

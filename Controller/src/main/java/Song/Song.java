@@ -1,5 +1,7 @@
 package Song;
 
+import org.json.JSONObject;
+
 public class Song {
 	
 	String title;
@@ -34,12 +36,11 @@ public class Song {
 		return this.id;
 	}
 	
-	public String toString(){
+	/*public String toString(){
 		return String.format("%s;%s;%s;%s", this.title, this.artist, this.album, this.id);
-	}
+	}*/
 	
-	public static Song fromString(String dataString){
-		String[] elements = dataString.split(";");
-		return new Song(elements[0], elements[1], elements[2], elements[3]);
+	public static Song fromString(JSONObject data){
+		return new Song( data.getString("Title") , data.getString("Artist"), data.getString("Album"), data.getString("Path"));
 	}
 }

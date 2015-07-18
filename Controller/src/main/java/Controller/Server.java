@@ -6,6 +6,8 @@ import java.util.*;
 
 import org.json.*;
 
+import Song.Song;
+
 public class Server {
 	
 	static final int SERVER_PORT = 8080;
@@ -22,8 +24,9 @@ public class Server {
 	public Server(String ipAddress, int port) throws Exception{
 		this.port = port;
 		try {
-			this.serverAddress = new InetSocketAddress(InetAddress.getByName(ipAddress), port);
-		} catch (UnknownHostException ServEx) {
+			//this.serverAddress = new InetSocketAddress(InetAddress.getByName(ipAddress), port);
+			this.serverAddress = new InetSocketAddress(ipAddress, port);
+		} catch (Exception ServEx) {
 			throw new Exception("Unknown Server Host", ServEx);
 		}
 		
@@ -56,32 +59,38 @@ public class Server {
 	}
 	
 	// Sends a search command to the Server, with a string containing the search params
-	public List<String> Search(String searchParams) throws Exception{
+	public List<Song> Search(String searchParams) throws Exception{
 		JSONObject outbound = new JSONObject();
-		List<String> temp = new ArrayList<String>();
+		List<Song> temp = new ArrayList<Song>();
 		JSONObject fromString;
 		JSONArray tempResults;
 		String inbound = "";
 		
 		try{
 		
-			outbound.put("type","controller");
-			outbound.put("request","search");
-			outbound.put("search", searchParams);
+			outbound.put("Type","Controller");
+			outbound.put("Request","Search");
+			outbound.put("Search", searchParams);
 			socketWriteChannel.println(outbound.toString());
 			inbound = socketReadChannel.readLine();
 		} catch (SocketException ex){
 			throw new Exception ("Connection to Server lost");
 		}
 		
+		//JSONArray blah = new JSONArray();
 		fromString = new JSONObject(new JSONTokener(inbound));
 		// Parse list from inbound info
-		tempResults = (JSONArray) fromString.get("results");
-		if (tempResults != null){
-			for (int i = 0; i < tempResults.length(); i++){
-				temp.add(i, tempResults.getString(i));
-			}
+		
+		if(fromString.has("Music")){
+			tempResults = fromString.getJSONArray("Music");
+			if (tempResults != null){
+				for (int i = 0; i < tempResults.length(); i++){
+					JSONObject jsonObject = tempResults.getJSONObject(i);
+					temp.add(i, Song.fromString( jsonObject ) );
+				}
+			}	
 		}
+		
 		
 		return temp;
 	}

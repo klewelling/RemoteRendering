@@ -82,23 +82,22 @@ public class Presenter {
 		
 		ErrorCheck();
 		
-		switch (command){
-		case "play":
-			outbound.put("action",command);
-			outbound.put("id", parameter);
-			break;
-		default:
-			outbound.put("action",command);
-			break;
+		outbound.put("Type", "Controller");
+		if("Play".equalsIgnoreCase(command)){
+			outbound.put("Action",command);
+			outbound.put("Path", parameter);
+		}else {
+			outbound.put("Action",command);	
 		}
+		
 
 		socketWriteChannel.println(outbound.toString());
 		
 		inbound = socketReadChannel.readLine();
 		fromString = new JSONObject(new JSONTokener(inbound));
-		if (fromString.getString("result").equals("failure")) {
-			throw new Exception(fromString.getString("reason"));
-		} else if (fromString.getString("result").equals("success")) {
+		if (fromString.getString("Result").equals("Failure")) {
+			throw new Exception(fromString.getString("Reason"));
+		} else if (fromString.getString("Result").equals("Success")) {
 			;
 		} else {
 			throw new Exception("Invalid response from Presenter");
@@ -107,22 +106,22 @@ public class Presenter {
 	
 	// Sends a Play command to the Presenter to play the file specified
 	public void Play(String filename) throws Exception{
-		SendCommand("play", filename);
+		SendCommand("Play", filename);
 	}
 	
 	// Sends a Pause command to the Presenter
 	public void Pause() throws Exception{
-		SendCommand("pause", "");
+		SendCommand("Pause", "");
 	}
 	
 	// Sends a rewind command to the Presenter
 	public void Rewind() throws Exception{
-		SendCommand("rewind", "");
+		SendCommand("Rewind", "");
 	}
 	
 	// Sends a fast forward command to the Presenter
 	public void Forward() throws Exception{
-		SendCommand("forward", "");
+		SendCommand("Forward", "");
 	}
 	
 	// Sends a stop command to the Presenter

@@ -1,8 +1,6 @@
 package com.cs4390.remotecontrol;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import Song.Song;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -37,13 +35,13 @@ public class CurrentSongView implements View.OnClickListener{
 		wrappingLayout.setVisibility(View.GONE);
 	}
 	
-	public void setSong(JSONObject song){
+	public void setSong(Song song){
 		
-		try{
-			this.wrappingLayout.setVisibility(View.VISIBLE);
-			this.song.setText(song.getString(MainActivity.SONG));
-			this.artist.setText(song.getString(MainActivity.ARIST));
-		}catch(JSONException ex){throw new RuntimeException(ex);}
+		this.wrappingLayout.setVisibility(View.VISIBLE);
+		this.song.setText(song.getTitle());
+		this.artist.setText(song.getArtist());
+		
+		
 		
 	}
 	
