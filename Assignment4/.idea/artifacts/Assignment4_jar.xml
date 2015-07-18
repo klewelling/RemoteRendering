@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Assignment4:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Assignment4_jar</output-path>
+    <root id="archive" name="Assignment4.jar">
+      <element id="module-output" name="Assignment4" />
+      <element id="dir-copy" path="$PROJECT_DIR$" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../sqljdbc_4.2/enu/sqljdbc42.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
