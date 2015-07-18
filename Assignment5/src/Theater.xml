@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<movietheater name="AMC NorthPark 15">
+    <location name="Northpark Center">
+        <address>8687 N Central Expy</address>
+        <city>Dallas</city>
+        <state>TX</state>
+        <zip>75225</zip>
+    </location>
+    <movielisting>
+        <movie name="Minions">
+            <duration>104 minutes</duration>
+            <type>Family</type>
+            <times>
+                <showing>1100</showing>
+                <showing>1400</showing>
+                <showing>1600</showing>
+                <showing>1730</showing>
+                <showing>2200</showing>
+            </times>
+        </movie>
+        <movie name="Ant-Man">
+            <duration>117 minutes</duration>
+            <type>Action</type>
+            <times>
+                <showing>1130</showing>
+                <showing>1700</showing>
+                <showing>1800</showing>
+                <showing>2030</showing>
+                <showing>2300</showing>
+            </times>
+        </movie>
+        <movie name="Trainwreck">
+            <duration>122 minutes</duration>
+            <type>Comedy</type>
+            <times>
+                <showing>1200</showing>
+                <showing>1400</showing>
+                <showing>1700</showing>
+                <showing>1930</showing>
+                <showing>2100</showing>
+            </times>
+        </movie>
+    </movielisting>
+</movietheater>
