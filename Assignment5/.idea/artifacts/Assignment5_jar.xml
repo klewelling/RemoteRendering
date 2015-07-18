@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Assignment5:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Assignment5_jar</output-path>
+    <root id="archive" name="DomParsing.jar">
+      <element id="module-output" name="Assignment5" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/saxon8.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
